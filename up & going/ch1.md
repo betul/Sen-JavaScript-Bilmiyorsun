@@ -597,11 +597,19 @@ Programlama öğrenmeye başlarken kodunuza açıklama eklemeyi alışkanlık ed
 
 ## Variables
 
-Most useful programs need to track a value as it changes over the course of the program, undergoing different operations as called for by your program's intended tasks.
+##Değişkenler
 
-The easiest way to go about that in your program is to assign a value to a symbolic container, called a *variable* -- so called because the value in this container can *vary* over time as needed.
+~~Most useful programs need to track a value as it changes over the course of the program, undergoing different operations as called for by your program's intended tasks.~~
+
+~~The easiest way to go about that in your program is to assign a value to a symbolic container, called a *variable* -- so called because the value in this container can *vary* over time as needed.~~
 
 In some programming languages, you declare a variable (container) to hold a specific type of value, such as `number` or `string`. *Static typing*, otherwise known as *type enforcement*, is typically cited as a benefit for program correctness by preventing unintended value conversions.
+
+En kullanışlı olan programlar, farklı görevleri yerine getirirken değişen değerleri programın çalışma süresi boyunca takip ederler.
+
+Programınızda bunu yapmanın en kolay yolu elinizdeki değeri *değişken* adınadki sembolik bir konteynıra atamaktır -- değişken denmesinin sebebi konteynırın içerdiği değerin gerektikçe *değiş*ebilecek olmasıdır. 
+
+Bazı programlama dillerinde bir değişken (konteynır) bildirimi yapılırken, `number` veya `string` gibi tek bir tür tutabileceği belirtilir.
 
 Other languages emphasize types for values instead of variables. *Weak typing*, otherwise known as *dynamic typing*, allows a variable to hold any type of value at any time. It's typically cited as a benefit for program flexibility by allowing a single variable to represent a value no matter what type form that value may take at any given moment in the program's logic flow.
 
