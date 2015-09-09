@@ -538,36 +538,62 @@ Consider:
                       */
 ```
 
-The `//` single-line comment is appropriate if you're going to put a comment right above a single statement, or even at the end of a line. Everything on the line after the `//` is treated as the comment (and thus ignored by the compiler), all the way to the end of the line. There's no restriction to what can appear inside a single-line comment.
+~~The `//` single-line comment is appropriate if you're going to put a comment right above a single statement, or even at the end of a line. Everything on the line after the `//` is treated as the comment (and thus ignored by the compiler), all the way to the end of the line. There's no restriction to what can appear inside a single-line comment.~~
 
-Consider:
-
-```js
-var a = 42;		// 42 is the meaning of life
-```
-
-The `/* .. */` multiline comment is appropriate if you have several lines worth of explanation to make in your comment.
+~~Consider:~~
 
 Here's a common usage of multiline comments:
+Tek-satır açıklaması olan `//` , yazdığınız deyimin hemen altına, hatta satırın hemen sonuna açıklama yapmak için,  kullanılabilir.`//`dan hemen sonra aynı satıra yazılan herşey, satır sonuna kadar açıklama olarak işlem görür (yani derleyici tarafından ihmal edilir). Tek satırlık açıklamaların ne içermesi gerektiği konusunda bir sınırlandırma yoktur.
+
+Örnek olarak:
+
+
+~~var a = 42;		// 42 is the meaning of life~~
 
 ```js
-/* The following value is used because
-   it has been shown that it answers
-   every question in the universe. */
+var a = 42;		// 42 hayatın anlamıdır
+```
+
+~~The `/* .. */` multiline comment is appropriate if you have several lines worth of explanation to make in your comment.~~
+
+Çok satır açıklaması olan `/* .. */` bir satırdan fazla süren ayrıntılı açıklama eklemek için uygundur. 
+
+~~/* The following value is used because~~
+   ~~it has been shown that it answers~~
+  ~~ every question in the universe. */~~
+~~var a = 42;~~
+
+
+```js
+/* Sıradaki değerin kullanılma
+   sebebi, bu değerin evrende
+   sorulan bütün soruların cevabı 
+   olmasıdır.*/
 var a = 42;
 ```
 
-It can also appear anywhere on a line, even in the middle of a line, because the `*/` ends it. For example:
+~~It can also appear anywhere on a line, even in the middle of a line, because the `*/` ends it. For example:~~
+
+
+~~var a = /* arbitrary value */ 42;~~
+
+~~console.log( a );	// 42~~
+
+Bu açıklama şekli satırın her yerinde kullanılabilir çünkü `*/` şeklinde kapanma etiketi vardır. Örneğin:
 
 ```js
-var a = /* arbitrary value */ 42;
+var a = /* rastgele bir değer */ 42;
 
 console.log( a );	// 42
 ```
 
-The only thing that cannot appear inside a multiline comment is a `*/`, because that would be interpreted to end the comment.
+~~The only thing that cannot appear inside a multiline comment is a `*/`, because that would be interpreted to end the comment.~~
 
-You will definitely want to begin your learning of programming by starting off with the habit of commenting code. Throughout the rest of this chapter, you'll see I use comments to explain things, so do the same in your own practice. Trust me, everyone who reads your code will thank you!
+~~You will definitely want to begin your learning of programming by starting off with the habit of commenting code. Throughout the rest of this chapter, you'll see I use comments to explain things, so do the same in your own practice. Trust me, everyone who reads your code will thank you!~~
+
+Çok satırlı açıklamanın içermemesi gereken tek şey `*/` dir çünkü bu karakterlerin ard arda bulunması kapanma etiketi olarak yorumlanacaktır. 
+
+Programlama öğrenmeye başlarken kodunuza açıklama eklemeyi alışkanlık edinmeniz öneriririm. Bölüm boyunca benim de bir şeyleri açıklamak için açıklama satırları eklediğimi göreceksiniz. Siz de bunu yaptığınız egzersizlerde uygulamaya özen gösterin. Bana güvenin, ilerde yazdığınız kodu okuyan herkes size teşekkür edecek.
 
 ## Variables
 
