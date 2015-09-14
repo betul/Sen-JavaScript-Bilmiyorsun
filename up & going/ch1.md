@@ -603,66 +603,115 @@ Programlama öğrenmeye başlarken kodunuza açıklama eklemeyi alışkanlık ed
 
 ~~The easiest way to go about that in your program is to assign a value to a symbolic container, called a *variable* -- so called because the value in this container can *vary* over time as needed.~~
 
-In some programming languages, you declare a variable (container) to hold a specific type of value, such as `number` or `string`. *Static typing*, otherwise known as *type enforcement*, is typically cited as a benefit for program correctness by preventing unintended value conversions.
+~~In some programming languages, you declare a variable (container) to hold a specific type of value, such as `number` or `string`. *Static typing*, otherwise known as *type enforcement*, is typically cited as a benefit for program correctness by preventing unintended value conversions.~~
 
 En kullanışlı olan programlar, farklı görevleri yerine getirirken değişen değerleri programın çalışma süresi boyunca takip ederler.
 
 Programınızda bunu yapmanın en kolay yolu elinizdeki değeri *değişken* adınadki sembolik bir konteynıra atamaktır -- değişken denmesinin sebebi konteynırın içerdiği değerin gerektikçe *değiş*ebilecek olmasıdır. 
 
-Bazı programlama dillerinde bir değişken (konteynır) bildirimi yapılırken, `number` veya `string` gibi tek bir tür tutabileceği belirtilir.
+Bazı programlama dillerinde bir değişken (konteynır) bildirimi yapılırken, `number` veya `string` gibi tek bir tür tutabileceği belirtilir. Bu statik yazım istenmeyen tür geçişlerini engellediğinden genellikle  programın yararına olan bir özellik ele alınır.
 
-Other languages emphasize types for values instead of variables. *Weak typing*, otherwise known as *dynamic typing*, allows a variable to hold any type of value at any time. It's typically cited as a benefit for program flexibility by allowing a single variable to represent a value no matter what type form that value may take at any given moment in the program's logic flow.
+~~Other languages emphasize types for values instead of variables. *Weak typing*, otherwise known as *dynamic typing*, allows a variable to hold any type of value at any time. It's typically cited as a benefit for program flexibility by allowing a single variable to represent a value no matter what type form that value may take at any given moment in the program's logic flow.~~
 
-JavaScript uses the latter approach, *dynamic typing*, meaning variables can hold values of any *type* without any *type* enforcement.
+~~JavaScript uses the latter approach, *dynamic typing*, meaning variables can hold values of any *type* without any *type* enforcement.~~
 
-As mentioned earlier, we declare a variable using the `var` statement -- notice there's no other *type* information in the declaration. Consider this simple program:
+~~As mentioned earlier, we declare a variable using the `var` statement -- notice there's no other *type* information in the declaration. Consider this simple program:~~
+
+Başka dillerde değişkenler yerine değerlerin tür tanımlası yapılır. *Weak typing*, aynı zamanda *dinamik yazım* olarak bilinen bu diller değişkenin her zaman her türde değer tutmasına izin verir. Bu özellik programdaki bir değişkenin programın mantık akışına göre herhangi türdeki bir değerin saklanmasına izin verdiği için esnekliğe izin verir
+
+Javascript yukarıda açıkladığımız yöntemler arasından ikinci olanını, dinamik yazım şeklini kullanmaktadır. Yani değişkenler herhangi bir tür zorlaması olmadan  her değeri saklayabilir.
+
+Daha önce de belirttiğimiz gibi değişkenin bildirimi yapılırken `var` anahtar kelimesi kullanılır. Farkettiyseniz bu deyimde *tür* belirtilme kuralı yoktur. Örnek olarak şu programı ele alalım:
+
+~~var amount = 99.99;~~
+
+~~amount = amount * 2;~~
+
+~~console.log( amount );		// 199.98~~
+
+~~~convert `amount` to a string, and~~
+~~ add "$" on the beginning~~
+~~amount = "$" + String( amount );~~
+
+~~console.log( amount );		// "$199.98"~~
+
 
 ```js
-var amount = 99.99;
+var miktar = 99.99;
 
-amount = amount * 2;
+miktar = miktar * 2;
 
-console.log( amount );		// 199.98
+console.log( miktar );		// 199.98
 
-// convert `amount` to a string, and
-// add "$" on the beginning
-amount = "$" + String( amount );
+// ``miktar`ı string türüne çevir, ve
+// başına "$" ekleyin
+miktar = "$" + String( miktar );
 
-console.log( amount );		// "$199.98"
+console.log( miktar );		// "$199.98"
 ```
-
 The `amount` variable starts out holding the number `99.99`, and then holds the `number` result of `amount * 2`, which is `199.98`.
 
-The first `console.log(..)` command has to *implicitly* coerce that `number` value to a `string` to print it out.
+~~The first `console.log(..)` command has to *implicitly* coerce that `number` value to a `string` to print it out.~~
 
-Then the statement `amount = "$" + String(amount)` *explicitly* coerces the `199.98` value to a `string` and adds a `"$"` character to the beginning. At this point, `amount` now holds the `string` value `"$199.98"`, so the second `console.log(..)` statement doesn't need to do any coercion to print it out.
+~~Then the statement `amount = "$" + String(amount)` *explicitly* coerces the `199.98` value to a `string` and adds a `"$"` character to the beginning. At this point, `amount` now holds the `string` value `"$199.98"`, so the second `console.log(..)` statement doesn't need to do any coercion to print it out.~~
 
-JavaScript developers will note the flexibility of using the `amount` variable for each of the `99.99`, `199.98`, and the `"$199.98"` values. Static-typing enthusiasts would prefer a separate variable like `amountStr` to hold the final `"$199.98"` representation of the value, because it's a different type.
+`miktar` değişkeni başta `99.99` sayısını tutarken, daha sonra `miktar*2` işleminin sonucu olan `199.98`i `sayı` olarak tutar.
 
-Either way, you'll note that `amount` holds a running value that changes over the course of the program, illustrating the primary purpose of variables: managing program *state*.
+İlk `console.log(..)` komutu bu `sayı` türündeki değeri *gizli olarak* (implicitly) `string` türüne çevirdikten sonra konsola basabilmektedir.
 
-In other words, *state* is tracking the changes to values as your program runs.
+`miktar = "$" + String( miktar);` deyimi `199.88` değerini *açık olarak* (explicitly) `string` türüne çevirip başına `"$"` karakterini ekler. Bu andan itibaren `miktar` değişkeni  `string` türündeki `"$199.98"` değerini saklamaktadır. Bu yüzden ikinci `console.log(..)` komutunun konsola çıktıyı yazdırmak için herhangi bir dönüşüm yapmasına gerek kalmayacaktır.
 
-Another common usage of variables is for centralizing value setting. This is more typically called *constants*, when you declare a variable with a value and intend for that value to *not change* throughout the program.
+~~JavaScript developers will note the flexibility of using the `amount` variable for each of the `99.99`, `199.98`, and the `"$199.98"` values. Static-typing enthusiasts would prefer a separate variable like `amountStr` to hold the final `"$199.98"` representation of the value, because it's a different type.~~
 
-You declare these *constants*, often at the top of a program, so that it's convenient for you to have one place to go to alter a value if you need to. By convention, JavaScript variables as constants are usually capitalized, with underscores `_` between multiple words.
+~~Either way, you'll note that `amount` holds a running value that changes over the course of the program, illustrating the primary purpose of variables: managing program *state*.~~
 
-Here's a silly example:
+~~In other words, *state* is tracking the changes to values as your program runs.~~
+
+JavaScript geliştiricileri  `miktar` değişkeninin ayrı ayrı `99.99`, `199.98` ve `$199.98` değerleri için kullanılıyor olmasının esnekliğini fark edecektir. Statik olarak yazılan dillerde değerin `"$199.98"` şeklindeki gösterimi için `miktarStr` gibi ayrı bir değişkene ihtiyaç duyulacaktır çünkü bu farklı bir türdür.
+
+İki türlü de `miktar` değişkeninin program çalıştığı sürece değişerek, değişkenlerin birincil görevi olan programın *durumu*nu işletme görevini sergilediğini göreceksiniz.
+
+Başka bir deyişle, *durum*,  programınız çalışırken değerlerin değişimlerinin izlenmesidir. 
+
+~~Another common usage of variables is for centralizing value setting. This is more typically called *constants*, when you declare a variable with a value and intend for that value to *not change* throughout the program.~~
+
+~~You declare these *constants*, often at the top of a program, so that it's convenient for you to have one place to go to alter a value if you need to. By convention, JavaScript variables as constants are usually capitalized, with underscores `_` between multiple words.~~
+
+~~Here's a silly example:~~
+
+Değişkenlerin diğer bir yaygın kullanım alanı değer atamanın merkezileştirilmesidir. Buna genelde *constant* (sabit) adı verilir. Bir değişkene program süresince değişmesini istemediğiniz bir değer atadığınız zaman elde ettiğiniz değişkenlerdir.
+
+Bu *sabitler* genelde programın en başında tanımlanır. Böylece sabit bir değeri değiştirmek gerektiğinde bir yere gitmeniz yeterli olacaktır. Kural olarak, JavasScript'de sabit olan değişkenlerin isimlendirilmesinde büyük harf, birden fazla kelimenin arasında da alttan çizgi  `_` karakteri  kullanılır. 
+
+Örneğin:
+
+
+~~var TAX_RATE = 0.08;	// 8% sales tax~~
+
+~~var amount = 99.99;~~
+
+~~amount = amount * 2;~~
+
+~~amount = amount + (amount * TAX_RATE);~~
+
+~~console.log( amount );				// 215.9784~~
+~~console.log( amount.toFixed( 2 ) );	// "215.98"~~
 
 ```js
-var TAX_RATE = 0.08;	// 8% sales tax
+var VERGI_ORANI = 0.08;	// 8% satış vergisi
 
-var amount = 99.99;
+var miktar = 99.99;
 
-amount = amount * 2;
+miktar = miktar * 2;
 
-amount = amount + (amount * TAX_RATE);
+miktar = miktar + (miktar * VERGI_ORANI);
 
-console.log( amount );				// 215.9784
-console.log( amount.toFixed( 2 ) );	// "215.98"
+console.log( miktar );				// 215.9784
+console.log( miktar.toFixed( 2 ) );	// "215.98"
 ```
-
 **Note:** Similar to how `console.log(..)` is a function `log(..)` accessed as an object property on the `console` value, `toFixed(..)` here is a function that can be accessed on `number` values. JavaScript `number`s aren't automatically formatted for dollars -- the engine doesn't know what your intent is and there's no type for currency. `toFixed(..)` lets us specify how many decimal places we'd like the `number` rounded to, and it produces the `string` as necessary.
+
+**Not:**`console.log(..)`, `log(..)` un `console` değerinin obje özelliğinden ulaştığı bir fonksiyon olduğu gibi, `toFixed(..)` de `number` değerlerinden ulaşılabilen bir fonksiyondur. JavaScript'
 
 The `TAX_RATE` variable is only *constant* by convention -- there's nothing special in this program that prevents it from being changed. But if the city raises the sales tax rate to 9%, we can still easily update our program by setting the `TAX_RATE` assigned value to `0.09` in one place, instead of finding many occurrences of the value `0.08` strewn throughout the program and updating all of them.
 
